@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+// import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post-create',
@@ -10,6 +11,7 @@ export class PostCreateComponent implements OnInit {
   constructor() {}
   enteredTitle = '';
   enteredContent = '';
+  @Output() postCreated = new EventEmitter();
 
   ngOnInit(): void {}
 
@@ -18,5 +20,6 @@ export class PostCreateComponent implements OnInit {
       title: this.enteredTitle,
       content: this.enteredContent,
     };
+    this.postCreated.emit(post);
   }
 }

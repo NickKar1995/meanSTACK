@@ -1,15 +1,15 @@
 <mat-card>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredTitle" />
-  </mat-form-field>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <textarea
-      matInput
-      rows="6"
-      [(ngModel)]="enteredContent"
-    ></textarea>
-  </mat-form-field>
-  <button mat-raised-button color="accent" (click)="onAddPost()">
-    Save Post
-  </button>
+  <form [formGroup]="postForm">
+    <mat-form-field>
+      <input formControlName="title" matInput type="text" />
+      <!-- [(ngModel)]="enteredTitle" -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <textarea formControlName="content" matInput rows="4"></textarea>
+      <!-- [(ngModel)]="enteredContent" -->
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="onAddPost()">
+      Save Post
+    </button>
+  </form>
 </mat-card>

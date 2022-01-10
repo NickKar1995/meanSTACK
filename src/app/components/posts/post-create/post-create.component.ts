@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Post } from '../post.model';
-// import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post-create',
@@ -14,12 +14,24 @@ export class PostCreateComponent implements OnInit {
   enteredContent = '';
   @Output() postCreated = new EventEmitter<Post>();
 
-  ngOnInit(): void {}
+  //
+  postForm!: FormGroup;
+  //
+
+  ngOnInit(): void {
+    this.postForm = new FormGroup({
+      title: new FormControl(null),
+      content: new FormControl(null),
+    });
+  }
 
   onAddPost() {
+    console.log('FORM HERE', this.postForm);
     const post: Post = {
-      title: this.enteredTitle,
-      content: this.enteredContent,
+      // title: this.enteredTitle,
+      // content: this.enteredContent,
+      title: this.postForm.value.title,
+      content: this.postForm.value.content,
     };
     this.postCreated.emit(post);
   }

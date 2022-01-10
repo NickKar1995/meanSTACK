@@ -1,15 +1,29 @@
 <mat-card>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredTitle" />
-  </mat-form-field>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <textarea
-      matInput
-      rows="6"
-      [(ngModel)]="enteredContent"
-    ></textarea>
-  </mat-form-field>
-  <button mat-raised-button color="accent" (click)="onAddPost()">
-    Save Post
-  </button>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+        #title="ngModel"
+        required
+        matInput
+        type="text"
+        ngModel
+        name="title"
+      />
+      <mat-error *ngIf="title.invalid">Please enter a title</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <textarea
+        #content="ngModel"
+        required
+        matInput
+        rows="2"
+        ngModel
+        name="content"
+      ></textarea>
+      <mat-error *ngIf="title.invalid">Please enter some content</mat-error>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="accent">Save Post</button>
+  </form>
 </mat-card>
+
+<!-- local referrence is for using the error instead of just trying to reach the actual value inside the object  -->

@@ -8,6 +8,7 @@ import { PostCreateComponent } from './components/posts/post-create/post-create.
 import { FormsModule } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material
 import { MatInputModule } from '@angular/material/input';
@@ -36,6 +37,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatToolbarModule,
     MatExpansionModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,6 +7,7 @@
         matInput
         type="text"
         ngModel
+        placeholder="Post title"
         name="title"
       />
       <mat-error *ngIf="title.invalid">Please enter a title</mat-error>
@@ -18,6 +19,7 @@
         matInput
         rows="2"
         ngModel
+        placeholder="Post content"
         name="content"
       ></textarea>
       <mat-error *ngIf="title.invalid">Please enter some content</mat-error>
